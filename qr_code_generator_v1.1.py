@@ -20,20 +20,22 @@ class Window(QWidget):
         self.setWindowTitle("QRCode generator")
 
         # used to change color of the app background
-        self.setStyleSheet("background : lightblue")
+        self.setStyleSheet("background : lightgrey")
 
         self.text = QLineEdit()
         self.button = QPushButton("Generate")
 
-        # application de CSS sur le bouton 
-        self.button.setStyleSheet(  "background : red ;"
-                                    " color : white ;"
-                                    #"border: 2px solid #2980b9;"
+        # application de CSS sur le bouton
+        self.button.setStyleSheet(  "background : green ;"
+                                    "color : lightblack ;"
+                                    "font-size : 25px ;"
+                                    "border: 2px solid #000000;"
                                     "border-radius : 5px"
                                   )  
         
+        # application de CSS sur l'entree texte
         self.text.setStyleSheet(    "background : white ;"
-                                    "border: 2px solid #2980b9;"
+                                    "border: 2px solid #000000;"
                                     "border-radius : 5px"
                                   )               
 
@@ -52,7 +54,14 @@ class Window(QWidget):
         texte_a_copier = self.text.text()
         if self.text.text() == "" :
             message = QMessageBox()
+            
+            message.setWindowTitle("ERROR")
             message.setText("Invalid, try again")
+
+            message.setStyleSheet(  "background : lightgrey ;"
+                                    "color : red ;"
+                                    "font-size : 20px ;"
+                                  )  
             message.exec_()
         else:
             #texte_a_copier = self.text.text()
