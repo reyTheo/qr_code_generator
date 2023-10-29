@@ -51,6 +51,8 @@ class Window(QWidget):
 
             im.show()
 
+            
+
             # la méthode "setText" de QLabel permet de changer
             # le texte de l'étiquette
             # self.label.setText(texte_a_copier)
