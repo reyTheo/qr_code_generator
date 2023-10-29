@@ -1,5 +1,7 @@
 import sys
 from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 
 import qrcode
 from PIL import Image
@@ -17,8 +19,23 @@ class Window(QWidget):
         QWidget.__init__(self)
         self.setWindowTitle("QRCode generator")
 
+        # used to change color of the app background
+        self.setStyleSheet("background : lightblue")
+
         self.text = QLineEdit()
         self.button = QPushButton("Generate")
+
+        # application de CSS sur le bouton 
+        self.button.setStyleSheet(  "background : red ;"
+                                    " color : white ;"
+                                    #"border: 2px solid #2980b9;"
+                                    "border-radius : 5px"
+                                  )  
+        
+        self.text.setStyleSheet(    "background : white ;"
+                                    "border: 2px solid #2980b9;"
+                                    "border-radius : 5px"
+                                  )               
 
         layout = QVBoxLayout()
         layout.addWidget(self.text)
@@ -27,9 +44,9 @@ class Window(QWidget):
 
         self.resize(500,250)
 
-        self.button.clicked.connect(self.button_enable)
-        
-    
+        self.button.clicked.connect(self.button_enable)       
+
+
     # used to verifie that the user is typing something in the text box
     def button_enable(self):
         texte_a_copier = self.text.text()
@@ -51,7 +68,7 @@ class Window(QWidget):
 
             im.show()
 
-            
+
 
             # la méthode "setText" de QLabel permet de changer
             # le texte de l'étiquette
