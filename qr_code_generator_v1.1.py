@@ -54,7 +54,7 @@ class Window(QWidget):
         texte_a_copier = self.text.text()
         if self.text.text() == "" :
             message = QMessageBox()
-            
+
             message.setWindowTitle("ERROR")
             message.setText("Invalid, try again")
 
@@ -64,7 +64,6 @@ class Window(QWidget):
                                   )  
             message.exec_()
         else:
-            #texte_a_copier = self.text.text()
 
             qr.add_data(texte_a_copier)
             qr.make(fit=True)
@@ -76,8 +75,6 @@ class Window(QWidget):
             im = Image.open("qr_code.png")
 
             im.show()
-
-
 
             # la méthode "setText" de QLabel permet de changer
             # le texte de l'étiquette
