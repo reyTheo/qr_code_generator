@@ -26,18 +26,17 @@ class Window(QWidget):
         self.button = QPushButton("Generate")
 
         # application de CSS sur le bouton
-        self.button.setStyleSheet(  "background : green ;"
-                                    "color : lightblack ;"
-                                    "font-size : 25px ;"
-                                    "border: 2px solid #000000;"
-                                    "border-radius : 5px"
-                                  )  
+        #self.button.setStyleSheet("background-color : green ; color : black ;font-size : 50px ; border: 2px solid #000000; border-radius : 5px;")  
+
+        #self.button.setStyleSheet(f"QPushButton{{ background-color : green ; color:white ;}}")     
         
+        self.button.setStyleSheet(f"QPushButton:hover{{ background-color : green ; color:white ; border: 2px solid #000000; }}")
+
         # application de CSS sur l'entree texte
         self.text.setStyleSheet(    "background : white ;"
                                     "border: 2px solid #000000;"
-                                    "border-radius : 5px"
-                                  )               
+                                    "border-radius : 5px;"
+                                  )              
 
         layout = QVBoxLayout()
         layout.addWidget(self.text)
@@ -46,8 +45,7 @@ class Window(QWidget):
 
         self.resize(500,250)
 
-        self.button.clicked.connect(self.button_enable)       
-
+        self.button.clicked.connect(self.button_enable)  
 
     # used to verifie that the user is typing something in the text box
     def button_enable(self):
